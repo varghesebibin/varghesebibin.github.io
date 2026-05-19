@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,12 +41,44 @@
   --font-mono: 'JetBrains Mono', monospace;
   --radius: 10px;
   --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --nav-bg: rgba(11,13,17,0.88);
+}
+
+/* Light theme override */
+[data-theme="light"] {
+  --bg-primary: #f5f6f8;
+  --bg-secondary: #ebedf0;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a5a;
+  --text-muted: #8a8a9a;
+  --accent: #00b894;
+  --accent-glow: rgba(0,184,148,0.12);
+  --accent-dim: rgba(0,184,148,0.08);
+  --accent-2: #6c5ce7;
+  --accent-2-dim: rgba(108,92,231,0.1);
+  --accent-3: #e05060;
+  --accent-3-dim: rgba(224,80,96,0.1);
+  --accent-4: #d4a020;
+  --accent-4-dim: rgba(212,160,32,0.1);
+  --accent-5: #2080d0;
+  --accent-5-dim: rgba(32,128,208,0.1);
+  --border: #dde0e6;
+  --border-hover: #c0c4cc;
+  --nav-bg: rgba(245,246,248,0.92);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font-display);background:var(--bg-primary);color:var(--text-primary);line-height:1.7;overflow-x:hidden;}
+body{font-family:var(--font-display);background:var(--bg-primary);color:var(--text-primary);line-height:1.7;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
 ::selection{background:var(--accent);color:var(--bg-primary);}
+
+/* Light mode hero adjustments */
+[data-theme="light"] .hero-grid{background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);}
+[data-theme="light"] .hero-orb-1{opacity:0.12;}
+[data-theme="light"] .hero-orb-2{opacity:0.08;}
+[data-theme="light"] .hero-name .grad{background:linear-gradient(135deg,#00997a 0%,#5a4cd4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+[data-theme="light"] .hamburger span{background:var(--text-primary);}
 
 /* ============================================================
    NAV
@@ -56,9 +88,10 @@ nav {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(11,13,17,0.88);
+  background: var(--nav-bg, rgba(11,13,17,0.88));
   backdrop-filter: blur(24px) saturate(1.2);
   border-bottom: 1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .nav-inner {
@@ -574,7 +607,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     top: 56px;
     left: 0;
     right: 0;
-    background: rgba(11,13,17,0.95);
+    background: var(--nav-bg);
     backdrop-filter: blur(24px);
     padding: 1rem 0;
     border-bottom: 1px solid var(--border);
@@ -606,6 +639,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <li class="nav-tab" data-panel="contact"><a>Contact</a></li>
     </ul>
     <div class="nav-right">
+      <button class="view-toggle" id="themeToggle" title="Toggle light/dark mode">☀️ Light</button>
       <button class="view-toggle" id="viewToggle" title="Toggle between tabs and scroll view">☰ Scroll View</button>
       <div class="nav-resume">
         <!-- EDIT: Resume link -->
@@ -690,6 +724,14 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
 
   <div class="cards">
     <!-- EDIT: Project cards — copy a block to add more -->
+
+    <div class="card" data-category="ml">
+      <span class="card-badge badge-ml">ML & Modeling</span>
+      <h3 class="card-title">Melanoma Detection — Computer Vision</h3>
+      <p class="card-desc">Fine-tuned MobileNetV2 classifier detecting malignant skin lesions with ~90% accuracy. Trained on 10,000 dermoscopic images (ISIC). Live Streamlit demo with model card.</p>
+      <div class="card-tech"><span class="chip">TensorFlow</span><span class="chip">MobileNetV2</span><span class="chip">Streamlit</span><span class="chip">Transfer Learning</span></div>
+      <div class="card-links"><a href="https://github.com/varghesebibin/melanoma-detector" class="card-link" target="_blank">GitHub →</a><a href="https://melanoma-cancer-detector.streamlit.app" class="card-link" target="_blank">Live Demo →</a></div>
+    </div>
 
     <div class="card" data-category="de">
       <span class="card-badge badge-de">Data Engineering</span>
@@ -845,7 +887,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     <p>Actively looking for Data Scientist, Data Engineer, and ML Engineer roles. Let's talk.</p>
     <div class="contact-row">
       <!-- EDIT -->
-      <a href="mailto: bibinvarghese016@gmail.com" class="contact-tile"><div class="contact-icon">✉</div><span>you@email.com</span></a>
+      <a href="mailto:bibinvarghese016@gmail.com" class="contact-tile"><div class="contact-icon">✉</div><span>bibinvarghese016@gmail.com</span></a>
       <a href="https://www.linkedin.com/in/varghesebibin/" class="contact-tile" target="_blank"><div class="contact-icon">in</div><span>LinkedIn</span></a>
       <a href="https://github.com/varghesebibin" class="contact-tile" target="_blank"><div class="contact-icon">⌘</div><span>GitHub</span></a>
     </div>
@@ -928,6 +970,20 @@ hamburger.addEventListener('click', () => navTabs.classList.toggle('open'));
 navTabs.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => navTabs.classList.remove('open'))
 );
+
+// --- Theme toggle ---
+const themeToggle = document.getElementById('themeToggle');
+const htmlEl = document.documentElement;
+if (localStorage.getItem('theme') === 'light') {
+  htmlEl.setAttribute('data-theme', 'light');
+  themeToggle.textContent = '🌙 Dark';
+}
+themeToggle.addEventListener('click', () => {
+  const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+  htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  themeToggle.textContent = isDark ? '🌙 Dark' : '☀️ Light';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+});
 
 // --- Project filter ---
 const pills = document.querySelectorAll('.filter-pill');
