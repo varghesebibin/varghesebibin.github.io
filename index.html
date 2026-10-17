@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bibin Varghese — Data Scientist & Engineer</title>
+<title>Bibin Varghese - Data Scientist</title>
 
 <!-- ============================================================
      🔧 CUSTOMIZATION GUIDE
@@ -13,72 +13,75 @@
      To CHANGE colors: edit CSS variables in :root.
      ============================================================ -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* Dark theme — deep navy background, white text */
 :root {
-  --bg-primary: #0b0d11;
-  --bg-secondary: #10131a;
-  --bg-card: #161a24;
-  --text-primary: #e2e0dd;
-  --text-secondary: #858a98;
-  --text-muted: #4e5364;
-  --accent: #00d4aa;
-  --accent-glow: rgba(0,212,170,0.12);
-  --accent-dim: rgba(0,212,170,0.08);
-  --accent-2: #7b6cff;
-  --accent-2-dim: rgba(123,108,255,0.1);
-  --accent-3: #f06070;
-  --accent-3-dim: rgba(240,96,112,0.1);
-  --accent-4: #f0c040;
-  --accent-4-dim: rgba(240,192,64,0.1);
-  --accent-5: #40a0f0;
-  --accent-5-dim: rgba(64,160,240,0.1);
-  --border: #1f2330;
-  --border-hover: #2a3040;
-  --font-display: 'Outfit', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --bg-primary: #0e1a2b;
+  --bg-secondary: #13213a;
+  --bg-card: #17263f;
+  --text-primary: #eef2f8;
+  --text-secondary: #a9b6c9;
+  --text-muted: #6b7a92;
+  --accent: #4a90e2;
+  --accent-glow: rgba(74,144,226,0.18);
+  --accent-dim: rgba(74,144,226,0.12);
+  --accent-2: var(--accent);
+  --accent-2-dim: var(--accent-dim);
+  --accent-3: var(--accent);
+  --accent-3-dim: var(--accent-dim);
+  --accent-4: var(--accent);
+  --accent-4-dim: var(--accent-dim);
+  --accent-5: var(--accent);
+  --accent-5-dim: var(--accent-dim);
+  --border: #26364f;
+  --border-hover: #35496a;
+  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   --radius: 10px;
   --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
-  --nav-bg: rgba(11,13,17,0.88);
+  --nav-bg: rgba(14,26,43,0.9);
 }
 
-/* Light theme override */
+/* Light theme — white background, dark navy text (default) */
 [data-theme="light"] {
-  --bg-primary: #f5f6f8;
-  --bg-secondary: #ebedf0;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f6fa;
   --bg-card: #ffffff;
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a5a;
-  --text-muted: #8a8a9a;
-  --accent: #00b894;
-  --accent-glow: rgba(0,184,148,0.12);
-  --accent-dim: rgba(0,184,148,0.08);
-  --accent-2: #6c5ce7;
-  --accent-2-dim: rgba(108,92,231,0.1);
-  --accent-3: #e05060;
-  --accent-3-dim: rgba(224,80,96,0.1);
-  --accent-4: #d4a020;
-  --accent-4-dim: rgba(212,160,32,0.1);
-  --accent-5: #2080d0;
-  --accent-5-dim: rgba(32,128,208,0.1);
-  --border: #dde0e6;
-  --border-hover: #c0c4cc;
-  --nav-bg: rgba(245,246,248,0.92);
+  --text-primary: #0f2444;
+  --text-secondary: #46566f;
+  --text-muted: #8a97ab;
+  --accent: #1e4e8c;
+  --accent-glow: rgba(30,78,140,0.14);
+  --accent-dim: rgba(30,78,140,0.07);
+  --accent-2: var(--accent);
+  --accent-2-dim: var(--accent-dim);
+  --accent-3: var(--accent);
+  --accent-3-dim: var(--accent-dim);
+  --accent-4: var(--accent);
+  --accent-4-dim: var(--accent-dim);
+  --accent-5: var(--accent);
+  --accent-5-dim: var(--accent-dim);
+  --border: #e2e7ef;
+  --border-hover: #c6cedd;
+  --nav-bg: rgba(255,255,255,0.92);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font-display);background:var(--bg-primary);color:var(--text-primary);line-height:1.7;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
+body{font-family:var(--font-display);font-size:18px;background:var(--bg-primary);color:var(--text-primary);line-height:1.75;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
 ::selection{background:var(--accent);color:var(--bg-primary);}
 
 /* Light mode hero adjustments */
 [data-theme="light"] .hero-grid{background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);}
 [data-theme="light"] .hero-orb-1{opacity:0.12;}
 [data-theme="light"] .hero-orb-2{opacity:0.08;}
-[data-theme="light"] .hero-name .grad{background:linear-gradient(135deg,#00997a 0%,#5a4cd4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+[data-theme="light"] .hero-name .grad{background:linear-gradient(135deg,#1e4e8c 0%,#3a63a8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 [data-theme="light"] .hamburger span{background:var(--text-primary);}
+/* Light mode: lift cards off the white page */
+[data-theme="light"] .card,
+[data-theme="light"] .skill-box { box-shadow: 0 1px 3px rgba(15,36,68,0.06); }
+[data-theme="light"] .card:hover { box-shadow: 0 12px 32px rgba(15,36,68,0.1); }
 
 /* ============================================================
    NAV
@@ -233,7 +236,6 @@ nav {
   max-width: 1200px;
   margin: 56px auto 0;
   min-height: calc(100vh - 56px);
-  animation: fadePanel 0.35s ease;
 }
 
 .panel.active { display: block; }
@@ -323,8 +325,6 @@ body.scroll-mode .panel + .panel {
   color: var(--accent);
   letter-spacing: 2px;
   margin-bottom: 1.2rem;
-  opacity: 0;
-  animation: rise .7s ease forwards .1s;
 }
 
 .hero-name {
@@ -333,8 +333,6 @@ body.scroll-mode .panel + .panel {
   line-height: 1.08;
   letter-spacing: -2px;
   margin-bottom: 1.2rem;
-  opacity: 0;
-  animation: rise .7s ease forwards .25s;
 }
 
 .hero-name .grad {
@@ -349,16 +347,12 @@ body.scroll-mode .panel + .panel {
   color: var(--text-secondary);
   max-width: 520px;
   margin-bottom: 2.2rem;
-  opacity: 0;
-  animation: rise .7s ease forwards .4s;
 }
 
 .hero-actions {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
-  opacity: 0;
-  animation: rise .7s ease forwards .55s;
 }
 
 .btn {
@@ -385,8 +379,6 @@ body.scroll-mode .panel + .panel {
   margin-top: 3.5rem;
   padding-top: 1.8rem;
   border-top: 1px solid var(--border);
-  opacity: 0;
-  animation: rise .7s ease forwards .7s;
 }
 
 .metric-val { font-family:var(--font-mono);font-size:1.8rem;font-weight:700;color:var(--accent); }
@@ -437,7 +429,7 @@ body.scroll-mode .panel + .panel {
   z-index: -1;
 }
 
-.about-body p { color:var(--text-secondary);font-size:1rem;margin-bottom:1.2rem; }
+.about-body p { color:var(--text-secondary);font-size:1.02rem;margin-bottom:1.2rem; }
 .about-body strong { color:var(--text-primary); }
 
 .about-socials { display:flex;gap:0.6rem;margin-top:1.8rem;flex-wrap:wrap; }
@@ -498,7 +490,7 @@ body.scroll-mode .panel + .panel {
 .card:hover { border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.3); }
 .card:hover::before { opacity:1; }
 
-.card-badge { font-family:var(--font-mono);font-size:0.62rem;letter-spacing:1px;text-transform:uppercase;padding:0.25rem 0.65rem;border-radius:100px;display:inline-block;margin-bottom:0.9rem; }
+.card-badge { font-family:var(--font-display);font-size:0.75rem;letter-spacing:0;text-transform:none;padding:0.25rem 0.65rem;border-radius:100px;display:inline-block;margin-bottom:0.9rem; }
 .badge-ml { background:var(--accent-dim);color:var(--accent); }
 .badge-genai { background:var(--accent-2-dim);color:var(--accent-2); }
 .badge-deploy { background:var(--accent-3-dim);color:var(--accent-3); }
@@ -506,11 +498,11 @@ body.scroll-mode .panel + .panel {
 .badge-analyst { background:var(--accent-5-dim);color:var(--accent-5); }
 
 .card-title { font-size:1.1rem;font-weight:600;margin-bottom:0.6rem;letter-spacing:-0.2px; }
-.card-desc { color:var(--text-secondary);font-size:0.85rem;margin-bottom:1rem;line-height:1.65; }
+.card-desc { color:var(--text-secondary);font-size:0.95rem;margin-bottom:1rem;line-height:1.65; }
 .card-tech { display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.2rem; }
-.chip { font-family:var(--font-mono);font-size:0.65rem;padding:0.2rem 0.5rem;background:var(--bg-primary);border:1px solid var(--border);border-radius:4px;color:var(--text-muted); }
+.chip { font-family:var(--font-display);font-size:0.78rem;padding:0.2rem 0.5rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;color:var(--text-muted); }
 .card-links { display:flex;gap:1rem; }
-.card-link { font-family:var(--font-mono);font-size:0.72rem;color:var(--accent);text-decoration:none;transition:opacity .3s; }
+.card-link { font-family:var(--font-display);font-size:0.9rem;color:var(--accent);text-decoration:none;transition:opacity .3s; }
 .card-link:hover { opacity:0.65; }
 
 /* ============================================================
@@ -527,14 +519,14 @@ body.scroll-mode .panel + .panel {
 }
 
 .skill-box:hover { border-color:var(--border-hover); }
-.skill-box-title { font-family:var(--font-mono);font-size:0.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border); }
+.skill-box-title { font-family:var(--font-display);font-size:0.85rem;font-weight:600;color:var(--accent);letter-spacing:0;text-transform:none;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border); }
 .skill-list { display:flex;flex-wrap:wrap;gap:0.4rem; }
 
 .skill-tag {
   font-family: var(--font-mono);
   font-size: 0.74rem;
   padding: 0.35rem 0.7rem;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: 6px;
   color: var(--text-secondary);
@@ -547,14 +539,14 @@ body.scroll-mode .panel + .panel {
    TIMELINE
    ============================================================ */
 .timeline { position:relative;padding-left:1.8rem; }
-.timeline::before { content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2),var(--border)); }
+.timeline::before { content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--border); }
 .tl-item { position:relative;padding:0 0 2.8rem 2rem; }
 .tl-item:last-child { padding-bottom:0; }
 .tl-dot { position:absolute;left:-2.15rem;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-primary);box-shadow:0 0 0 2px var(--accent); }
-.tl-date { font-family:var(--font-mono);font-size:0.72rem;color:var(--accent);letter-spacing:0.5px;margin-bottom:0.35rem; }
+.tl-date { font-family:var(--font-display);font-size:0.85rem;color:var(--text-muted);letter-spacing:0;margin-bottom:0.35rem; }
 .tl-role { font-size:1.15rem;font-weight:600;margin-bottom:0.15rem; }
 .tl-company { color:var(--text-secondary);font-size:0.9rem;margin-bottom:0.6rem; }
-.tl-desc { color:var(--text-muted);font-size:0.88rem;line-height:1.65; }
+.tl-desc { color:var(--text-muted);font-size:0.95rem;line-height:1.65; }
 
 /* ============================================================
    CONTACT
@@ -629,7 +621,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
 <nav>
   <div class="nav-inner">
     <!-- EDIT: Your initials -->
-    <a class="nav-logo" data-panel="home">BV<span class="dim">.dev</span></a>
+    <a class="nav-logo" data-panel="home">Bibin Varghese</a>
     <ul class="nav-tabs" id="navTabs">
       <li class="nav-tab active" data-panel="home"><a>Home</a></li>
       <li class="nav-tab" data-panel="about"><a>About</a></li>
@@ -639,11 +631,11 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <li class="nav-tab" data-panel="contact"><a>Contact</a></li>
     </ul>
     <div class="nav-right">
-      <button class="view-toggle" id="themeToggle" title="Toggle light/dark mode">☀️ Light</button>
-      <button class="view-toggle" id="viewToggle" title="Toggle between tabs and scroll view">☰ Scroll View</button>
+      <button class="view-toggle" id="themeToggle" title="Toggle light/dark mode">Dark</button>
+      <button class="view-toggle" id="viewToggle" title="Toggle between tabs and scroll view">Scroll view</button>
       <div class="nav-resume">
         <!-- EDIT: Resume link -->
-        <a href="resume.pdf" target="_blank">Resume ↓</a>
+        <a href="resume.pdf" target="_blank">Resume</a>
       </div>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -656,23 +648,15 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
      ============================================================ -->
 <div class="panel active" id="panel-home">
   <div class="hero-wrap">
-    <div class="hero-bg"><div class="hero-grid"></div><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div></div>
     <div class="hero-content">
-      <!-- EDIT -->
-      <div class="hero-eyebrow">Data Scientist · Data Engineer · ML Engineer</div>
-      <h1 class="hero-name">Hi, I'm <span class="grad">Bibin Varghese</span></h1>
-      <p class="hero-pitch">I build end-to-end data systems — from distributed pipelines at scale to production ML models with real-time monitoring. Turning raw data into reliable, deployed products.</p>
+      <div class="hero-eyebrow">Data Scientist</div>
+      <h1 class="hero-name">Bibin Varghese</h1>
+      <p class="hero-pitch">Data scientist in the Department of Pharmacology and Toxicology at Michigan State University, working on image analysis pipelines for toxicology research. Before that, three years in healthcare analytics and EdTech, and an MS in Data Science from MSU.</p>
       <div class="hero-actions">
-        <!-- EDIT: Your links -->
-        <a href="resume.pdf" class="btn btn-fill" target="_blank">↓ Resume</a>
-        <a href="https://github.com/varghesebibin" class="btn btn-ghost" target="_blank">GitHub →</a>
-        <a href="https://www.linkedin.com/in/varghesebibin/" class="btn btn-ghost" target="_blank">LinkedIn →</a>
-      </div>
-      <div class="hero-metrics">
-        <!-- EDIT: Your numbers -->
-        <div><div class="metric-val">5+</div><div class="metric-label">Projects</div></div>
-        <div><div class="metric-val">12+</div><div class="metric-label">Technologies</div></div>
-        <div><div class="metric-val">3+</div><div class="metric-label">Years Exp.</div></div>
+        <a href="resume.pdf" class="btn btn-fill" target="_blank">Resume</a>
+        <a href="https://github.com/varghesebibin" class="btn btn-ghost" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/varghesebibin/" class="btn btn-ghost" target="_blank">LinkedIn</a>
+        <a href="mailto:bibinvarghese016@gmail.com" class="btn btn-ghost">Email</a>
       </div>
     </div>
   </div>
@@ -680,28 +664,26 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
 
 <!-- ABOUT PANEL -->
 <div class="panel" id="panel-about">
-  <span class="section-tag">01 — About</span>
-  <h2 class="section-title">Who I Am</h2>
-  <p class="section-subtitle">The short version.</p>
+  <h2 class="section-title">About</h2>
   <div class="about-layout">
     <div class="about-photo-wrap">
       <div class="about-photo">
-        <!-- EDIT: Replace with <img src="photo.jpg" ...> -->
+        <!-- EDIT: put photo.jpg in the repo and replace the span with:
+             <img src="photo.jpg" alt="Bibin Varghese" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"> -->
         <span>[ Your Photo ]</span>
       </div>
       <div class="about-accent-border"></div>
     </div>
     <div class="about-body">
-      <!-- EDIT: Your bio -->
-      <p>I'm a <strong>Data Scientist and Engineer</strong> passionate about the full lifecycle — not just building models, but deploying, monitoring, and scaling them in production.</p>
-      <p>I work across <strong>distributed data pipelines</strong> (Spark, Kafka, Airflow), <strong>ML model deployment</strong> (CI/CD, Docker, Grafana monitoring), and <strong>analytics</strong> (Power BI, SQL, Python).</p>
-      <p>Currently deepening my expertise in <strong>LLM engineering</strong> — RAG pipelines, LangChain — and <strong>computer vision</strong> and <strong>time-series forecasting</strong>.</p>
+      <!-- EDIT: bio -->
+      <p>I'm a data scientist at Michigan State University, in the Department of Pharmacology and Toxicology, building image analysis pipelines for toxicology research. Most of my day is spent with microscopy images, HPC jobs, and the plumbing that turns raw lab output into something a researcher can actually use.</p>
+      <p>I came to data through engineering. I studied Manufacturing Engineering at BITS Pilani with a minor in Finance, spent three years as an analyst in EdTech and then a data engineer in healthcare analytics, and finished an MS in Data Science at MSU in 2026. Along the way I did capstones with Henry Ford Health and Meijer, and led undergraduate teams on community data projects through MSU's REI program.</p>
+      <p>I like problems where the data is messy and the result matters to someone. Healthcare keeps pulling me back.</p>
       <div class="about-socials">
-        <!-- EDIT -->
+        <a href="mailto:bibinvarghese016@gmail.com" class="social-chip">Email</a>
         <a href="https://github.com/varghesebibin" class="social-chip" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/varghesebibin/" class="social-chip" target="_blank">LinkedIn</a>
-        <a href="mailto:bibinvarghese016@gmail.com" class="social-chip">Email</a>
-        <a href="https://www.kaggle.com/bibinvarghese527" class="social-chip" target="_blank">Kaggle</a>
+        <a href="resume.pdf" class="social-chip" target="_blank">Resume</a>
       </div>
     </div>
   </div>
@@ -709,117 +691,86 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
 
 <!-- PROJECTS PANEL -->
 <div class="panel" id="panel-projects">
-  <span class="section-tag">02 — Projects</span>
-  <h2 class="section-title">What I've Built</h2>
-  <p class="section-subtitle">Filter by category.</p>
-
-  <div class="filters">
-    <button class="filter-pill on" data-filter="all">All</button>
-    <button class="filter-pill" data-filter="ml">ML & Modeling</button>
-    <button class="filter-pill" data-filter="genai">GenAI & LLMs</button>
-    <button class="filter-pill" data-filter="deploy">Production & Deploy</button>
-    <button class="filter-pill" data-filter="de">Data Engineering</button>
-    <button class="filter-pill" data-filter="analyst">Data Analytics</button>
-  </div>
-
+  <h2 class="section-title">Projects</h2>
   <div class="cards">
-    <!-- EDIT: Project cards — copy a block to add more -->
+    <!-- EDIT: one card per project. Copy a block to add one. -->
+    <div class="card" data-category="ml">
+      <span class="card-badge badge-ml">Machine learning</span>
+      <h3 class="card-title">Melanoma detection from dermoscopic images</h3>
+      <p class="card-desc">Fine-tuned MobileNetV2 to classify skin lesions as benign or malignant on 10,000 ISIC images, reaching about 90% validation accuracy. Includes a model card covering limitations and intended use.</p>
+      <div class="card-tech"><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">Streamlit</span></div>
+      <div class="card-links"><a href="https://github.com/varghesebibin/melanoma-detector" class="card-link" target="_blank">Code</a><a href="https://melanoma-cancer-detector.streamlit.app" class="card-link" target="_blank">Live demo</a></div>
+    </div>
 
     <div class="card" data-category="ml">
-      <span class="card-badge badge-ml">ML & Modeling</span>
-      <h3 class="card-title">Melanoma Detection — Computer Vision</h3>
-      <p class="card-desc">Fine-tuned MobileNetV2 classifier detecting malignant skin lesions with ~90% accuracy. Trained on 10,000 dermoscopic images (ISIC). Live Streamlit demo with model card.</p>
-      <div class="card-tech"><span class="chip">TensorFlow</span><span class="chip">MobileNetV2</span><span class="chip">Streamlit</span><span class="chip">Transfer Learning</span></div>
-      <div class="card-links"><a href="https://github.com/varghesebibin/melanoma-detector" class="card-link" target="_blank">GitHub →</a><a href="https://melanoma-cancer-detector.streamlit.app" class="card-link" target="_blank">Live Demo →</a></div>
+      <span class="card-badge badge-ml">Machine learning</span>
+      <h3 class="card-title">Single-cell RNA-seq analysis of PBMC 3k</h3>
+      <p class="card-desc">End-to-end Scanpy pipeline on the 10x Genomics PBMC 3k dataset: QC, normalization, 1,838 highly variable genes, PCA, UMAP, Leiden clustering, and marker-based annotation of six cell types. Interactive dashboard for exploring the results.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">Scanpy</span><span class="chip">AnnData</span><span class="chip">Plotly</span><span class="chip">Streamlit</span></div>
+      <div class="card-links"><a href="https://github.com/varghesebibin/scrna-pbmc3k" class="card-link" target="_blank">Code</a></div>
+    </div>
+
+    <div class="card" data-category="ml">
+      <span class="card-badge badge-ml">Machine learning</span>
+      <h3 class="card-title">Patient risk classification with Henry Ford Health</h3>
+      <p class="card-desc">MS capstone building a classifier to flag high-risk patients on de-identified clinical data under a data use agreement. Compared Random Forest and XGBoost, with evaluation centered on recall for the high-risk class. Proprietary data, so no public code.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">XGBoost</span></div>
+      <div class="card-links"><a href="#" class="card-link">Write-up</a></div>
     </div>
 
     <div class="card" data-category="de">
-      <span class="card-badge badge-de">Data Engineering</span>
-      <h3 class="card-title">Real-Time Streaming Pipeline</h3>
-      <p class="card-desc">End-to-end streaming pipeline ingesting 500M+ synthetic events via Kafka, transforming with Spark Structured Streaming, orchestrated by Airflow.</p>
-      <div class="card-tech"><span class="chip">Kafka</span><span class="chip">Spark</span><span class="chip">Airflow</span><span class="chip">Docker</span><span class="chip">Python</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Write-up →</a></div>
+      <span class="card-badge badge-de">Data engineering</span>
+      <h3 class="card-title">Retail inventory data pipeline with Meijer</h3>
+      <p class="card-desc">MS capstone processing large-scale retail inventory data on MSU's HPCC. Built the ingest, clean, and transform pipeline and the summaries the business used to look at inventory. Proprietary data, so no public code.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">HPC</span></div>
+      <div class="card-links"><a href="#" class="card-link">Write-up</a></div>
     </div>
 
-    <div class="card" data-category="deploy">
-      <span class="card-badge badge-deploy">Production & Deploy</span>
-      <h3 class="card-title">ML Model CI/CD with Monitoring</h3>
-      <p class="card-desc">Production ML pipeline with Jenkins CI/CD, containerized model serving, and Grafana dashboards monitoring data drift, latency, and prediction quality.</p>
-      <div class="card-tech"><span class="chip">Jenkins</span><span class="chip">Grafana</span><span class="chip">Docker</span><span class="chip">FastAPI</span><span class="chip">MLflow</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Architecture →</a></div>
+    <div class="card" data-category="ml">
+      <span class="card-badge badge-ml">Machine learning</span>
+      <h3 class="card-title">Bank marketing: predicting term deposit subscription</h3>
+      <p class="card-desc">Binary classification on 45,000 records from a Portuguese bank's telemarketing campaigns, with an 88/12 class imbalance. A tuned Random Forest raised recall on subscribers from 6% (baseline) to 69% at 0.81 ROC-AUC.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">pandas</span></div>
+      <div class="card-links"><a href="https://github.com/varghesebibin/bank-marketing-campaign-subscription-prediction" class="card-link" target="_blank">Code</a></div>
+    </div>
+
+    <div class="card" data-category="ml">
+      <span class="card-badge badge-ml">Machine learning</span>
+      <h3 class="card-title">House price prediction on Ames Housing</h3>
+      <p class="card-desc">Regression on 81 property features joined with yearly CPI, inflation, and GDP. Gradient Boosting and Random Forest did best, around $21k MAE and R² of 0.84. Overall quality, living area, and garage size were the strongest predictors.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">Streamlit</span></div>
+      <div class="card-links"><a href="https://github.com/varghesebibin/House-Price-Prediction-Using-Advanced-ML-Models" class="card-link" target="_blank">Code</a><a href="https://house-price-prediction-using-advanced-ml-models.streamlit.app" class="card-link" target="_blank">Live demo</a></div>
     </div>
 
     <div class="card" data-category="genai">
-      <span class="card-badge badge-genai">GenAI & LLMs</span>
-      <h3 class="card-title">RAG-Powered Document Assistant</h3>
-      <p class="card-desc">RAG pipeline for querying internal docs. Built with LangChain, FAISS vector store, deployed as a chat interface with source attribution.</p>
-      <div class="card-tech"><span class="chip">LangChain</span><span class="chip">FAISS</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Streamlit</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Live Demo →</a></div>
-    </div>
-
-    <div class="card" data-category="ml">
-      <span class="card-badge badge-ml">ML & Modeling</span>
-      <h3 class="card-title">Customer Churn Classification</h3>
-      <p class="card-desc">Binary classification predicting customer churn. Model comparison (XGBoost, LightGBM, Logistic Regression), SHAP explanations, interactive Streamlit demo.</p>
-      <div class="card-tech"><span class="chip">Scikit-learn</span><span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">Pandas</span><span class="chip">Streamlit</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Streamlit App →</a></div>
-    </div>
-
-    <div class="card" data-category="ml">
-      <span class="card-badge badge-ml">ML & Modeling</span>
-      <h3 class="card-title">House Price Regression</h3>
-      <p class="card-desc">End-to-end regression: data cleaning, feature engineering, model selection (Ridge, RF, XGBoost), hyperparameter tuning, deployed prediction API.</p>
-      <div class="card-tech"><span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">Scikit-learn</span><span class="chip">FastAPI</span><span class="chip">Streamlit</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Streamlit App →</a></div>
-    </div>
-
-    <div class="card" data-category="ml">
-      <span class="card-badge badge-ml">ML & Modeling</span>
-      <h3 class="card-title">Time-Series Demand Forecasting</h3>
-      <p class="card-desc">Multi-step forecasting using LSTM and Prophet. Reduced forecast error by 35%. Feature engineering pipeline and evaluation framework.</p>
-      <div class="card-tech"><span class="chip">PyTorch</span><span class="chip">Prophet</span><span class="chip">Pandas</span><span class="chip">Scikit-learn</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Notebook →</a></div>
-    </div>
-
-    <div class="card" data-category="ml">
-      <span class="card-badge badge-ml">ML & Modeling</span>
-      <h3 class="card-title">Object Detection Pipeline</h3>
-      <p class="card-desc">Custom object detection with fine-tuned YOLO. Annotation pipeline, model training, deployed inference endpoint with batch and real-time modes.</p>
-      <div class="card-tech"><span class="chip">PyTorch</span><span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">Docker</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a></div>
+      <span class="card-badge badge-genai">GenAI</span>
+      <h3 class="card-title">Timber lease digitization for Luce County, MI</h3>
+      <p class="card-desc">Led an undergraduate team through MSU's REI program digitizing decades of scanned timber lease records. Built an OCR pipeline on the Gemini API to pull structured fields out of the scans and give the county a searchable dataset.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">Gemini API</span><span class="chip">OCR</span></div>
+      <div class="card-links"><a href="#" class="card-link">Write-up</a></div>
     </div>
 
     <div class="card" data-category="analyst">
-      <span class="card-badge badge-analyst">Data Analytics</span>
-      <h3 class="card-title">Sales Performance Dashboard</h3>
-      <p class="card-desc">Interactive Power BI dashboard tracking KPIs, regional performance, and trends across 2M+ transactions. Automated refresh via Python + SQL pipeline.</p>
-      <div class="card-tech"><span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">DAX</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Dashboard →</a></div>
+      <span class="card-badge badge-analyst">Analytics</span>
+      <h3 class="card-title">Community geospatial tool for Southwest Lansing</h3>
+      <p class="card-desc">Led an undergraduate team through MSU's REI program building an interactive map that combined public datasets so residents and local organizations could explore neighborhood-level data.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">GIS</span></div>
+      <div class="card-links"><a href="#" class="card-link">Write-up</a></div>
     </div>
 
     <div class="card" data-category="analyst">
-      <span class="card-badge badge-analyst">Data Analytics</span>
-      <h3 class="card-title">Exploratory Data Analysis — Housing</h3>
-      <p class="card-desc">End-to-end EDA: cleaning, feature analysis, correlation study, regression insights. Published as interactive Streamlit report.</p>
-      <div class="card-tech"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Plotly</span><span class="chip">Streamlit</span><span class="chip">SQL</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Streamlit App →</a></div>
-    </div>
-
-    <div class="card" data-category="de">
-      <span class="card-badge badge-de">Data Engineering</span>
-      <h3 class="card-title">Distributed ETL at Scale</h3>
-      <p class="card-desc">Distributed ETL processing billion-scale synthetic datasets with PySpark. Partitioning, bucketing, caching strategies with scaling benchmarks.</p>
-      <div class="card-tech"><span class="chip">PySpark</span><span class="chip">SQL</span><span class="chip">Airflow</span><span class="chip">Delta Lake</span></div>
-      <div class="card-links"><a href="#" class="card-link">GitHub →</a><a href="#" class="card-link">Scaling Notes →</a></div>
+      <span class="card-badge badge-analyst">Analytics</span>
+      <h3 class="card-title">Olist e-commerce analysis (in progress)</h3>
+      <p class="card-desc">Working through the Olist Brazilian e-commerce dataset: orders, sellers, customers, and reviews across linked tables. Looking at order flow, delivery performance, and what drives review scores.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">pandas</span></div>
+      <div class="card-links"><a href="#" class="card-link">Code</a></div>
     </div>
   </div>
 </div>
 
 <!-- SKILLS PANEL -->
 <div class="panel" id="panel-skills">
-  <span class="section-tag">03 — Skills</span>
-  <h2 class="section-title">Tech Stack</h2>
-  <p class="section-subtitle">Tools I work with regularly.</p>
+  <h2 class="section-title">Skills</h2>
   <div class="skill-grid">
     <div class="skill-box">
       <div class="skill-box-title">Languages</div>
@@ -850,46 +801,90 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
 
 <!-- EXPERIENCE PANEL -->
 <div class="panel" id="panel-experience">
-  <span class="section-tag">04 — Experience</span>
-  <h2 class="section-title">Where I've Worked</h2>
-  <p class="section-subtitle">Career timeline.</p>
+  <h2 class="section-title">Experience</h2>
   <div class="timeline">
-    <!-- EDIT -->
+    <!-- EDIT: fill the 20XX dates. Copy a block to add a role. -->
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">2023 — Present</div>
-      <div class="tl-role">Data Scientist</div>
-      <div class="tl-company">Company Name</div>
-      <div class="tl-desc">Built ML pipelines for demand forecasting, reducing prediction error by 35%. Deployed models to production with CI/CD and monitoring.</div>
+      <div class="tl-date">Sep 2026 to present</div>
+      <div class="tl-role">Professional Aide, Data Science</div>
+      <div class="tl-company">Department of Pharmacology and Toxicology, Michigan State University</div>
+      <div class="tl-desc">Image analysis pipelines for toxicology research on immunofluorescence and H&amp;E tissue images, running on MSU's HPCC with Nextflow.</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">2021 — 2023</div>
-      <div class="tl-role">Data Analyst</div>
-      <div class="tl-company">Previous Company</div>
-      <div class="tl-desc">Designed Power BI dashboards and automated reporting. Migrated legacy SQL workflows to dbt + Airflow stack.</div>
+      <div class="tl-date">2024 to 2026</div>
+      <div class="tl-role">MS, Data Science</div>
+      <div class="tl-company">Michigan State University</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">2020 — 2021</div>
-      <div class="tl-role">Data Engineering Intern</div>
-      <div class="tl-company">Earlier Company</div>
-      <div class="tl-desc">Built ETL pipelines processing 10M+ daily records with PySpark. Created monitoring dashboards in Grafana.</div>
+      <div class="tl-date">20XX</div>
+      <div class="tl-role">Data science capstone, patient risk classification</div>
+      <div class="tl-company">Henry Ford Health</div>
+      <div class="tl-desc">Classifier for high-risk patients on de-identified clinical data. Random Forest and XGBoost, evaluated on recall for the high-risk class.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">20XX</div>
+      <div class="tl-role">Data engineering capstone, retail inventory pipeline</div>
+      <div class="tl-company">Meijer</div>
+      <div class="tl-desc">Ingest, clean, and transform pipeline for large-scale inventory data on MSU's HPCC.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">20XX</div>
+      <div class="tl-role">Project lead, timber lease digitization</div>
+      <div class="tl-company">Luce County, MI, through MSU's REI program</div>
+      <div class="tl-desc">Led an undergraduate team building an OCR pipeline on the Gemini API to digitize scanned lease records.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">20XX to 2026</div>
+      <div class="tl-role">Student Technical Assistant</div>
+      <div class="tl-company">Regional Economic Innovation program, Michigan State University</div>
+      <div class="tl-desc">Led undergraduate teams on applied data projects for Michigan communities, including a geospatial tool for Southwest Lansing.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">20XX</div>
+      <div class="tl-role">Student Research Assistant</div>
+      <div class="tl-company">College of Veterinary Medicine, Michigan State University</div>
+      <div class="tl-desc">R pipelines joining and cleaning cattle health data from multiple farms into analysis-ready form.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">20XX</div>
+      <div class="tl-role">Data Engineer</div>
+      <div class="tl-company">Healthcare analytics <!-- EDIT: company name --></div>
+      <div class="tl-desc">Built and maintained pipelines over clinical and operational data for reporting and downstream modeling.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">20XX</div>
+      <div class="tl-role">Senior Analyst</div>
+      <div class="tl-company">EdTech <!-- EDIT: company name --></div>
+      <div class="tl-desc">Analytics and reporting on product and user data for business decisions.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">20XX</div>
+      <div class="tl-role">B.E., Manufacturing Engineering, minor in Finance</div>
+      <div class="tl-company">BITS Pilani</div>
     </div>
   </div>
 </div>
 
 <!-- CONTACT PANEL -->
 <div class="panel" id="panel-contact">
-  <span class="section-tag">05 — Contact</span>
-  <h2 class="section-title">Let's Connect</h2>
+  <h2 class="section-title">Contact</h2>
   <div class="contact-center">
     <p>Actively looking for Data Scientist, Data Engineer, and ML Engineer roles. Let's talk.</p>
     <div class="contact-row">
       <!-- EDIT -->
       <a href="mailto:bibinvarghese016@gmail.com" class="contact-tile"><div class="contact-icon">✉</div><span>bibinvarghese016@gmail.com</span></a>
       <a href="https://www.linkedin.com/in/varghesebibin/" class="contact-tile" target="_blank"><div class="contact-icon">in</div><span>LinkedIn</span></a>
-      <a href="https://github.com/varghesebibin" class="contact-tile" target="_blank"><div class="contact-icon">⌘</div><span>GitHub</span></a>
+      <a href="https://github.com/varghesebibin" class="contact-tile" target="_blank"><div class="contact-icon">GH</div><span>GitHub</span></a>
     </div>
   </div>
 </div>
@@ -951,7 +946,7 @@ viewToggle.addEventListener('click', () => {
   scrollMode = !scrollMode;
   document.body.classList.toggle('scroll-mode', scrollMode);
   viewToggle.classList.toggle('scroll-mode', scrollMode);
-  viewToggle.textContent = scrollMode ? '▦ Tab View' : '☰ Scroll View';
+  viewToggle.textContent = scrollMode ? 'Tab view' : 'Scroll view';
 
   if (!scrollMode) {
     // Going back to tab mode — activate whichever panel is most visible
@@ -974,30 +969,21 @@ navTabs.querySelectorAll('a').forEach(a =>
 // --- Theme toggle ---
 const themeToggle = document.getElementById('themeToggle');
 const htmlEl = document.documentElement;
-if (localStorage.getItem('theme') === 'light') {
+// Default is light. Apply saved preference if there is one.
+if (localStorage.getItem('theme') === 'dark') {
+  htmlEl.setAttribute('data-theme', 'dark');
+  themeToggle.textContent = 'Light';
+} else {
   htmlEl.setAttribute('data-theme', 'light');
-  themeToggle.textContent = '🌙 Dark';
+  themeToggle.textContent = 'Dark';
 }
 themeToggle.addEventListener('click', () => {
   const isDark = htmlEl.getAttribute('data-theme') === 'dark';
   htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  themeToggle.textContent = isDark ? '🌙 Dark' : '☀️ Light';
+  themeToggle.textContent = isDark ? 'Dark' : 'Light';
   localStorage.setItem('theme', isDark ? 'light' : 'dark');
 });
 
-// --- Project filter ---
-const pills = document.querySelectorAll('.filter-pill');
-const cards = document.querySelectorAll('.card');
-pills.forEach(p => { p.addEventListener('click', () => {
-  pills.forEach(x => x.classList.remove('on')); p.classList.add('on');
-  const f = p.dataset.filter;
-  cards.forEach(c => {
-    const show = f === 'all' || c.dataset.category === f;
-    c.style.transition = 'opacity .25s, transform .25s';
-    if (show) { c.style.display = ''; requestAnimationFrame(() => { c.style.opacity = '1'; c.style.transform = 'translateY(0)'; }); }
-    else { c.style.opacity = '0'; c.style.transform = 'translateY(12px)'; setTimeout(() => { c.style.display = 'none'; }, 250); }
-  });
-}); });
 </script>
 </body>
 </html>
