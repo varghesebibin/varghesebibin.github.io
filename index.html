@@ -79,8 +79,7 @@ body{font-family:var(--font-display);font-size:18px;background:var(--bg-primary)
 [data-theme="light"] .hero-name .grad{background:linear-gradient(135deg,#1e4e8c 0%,#3a63a8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 [data-theme="light"] .hamburger span{background:var(--text-primary);}
 /* Light mode: lift cards off the white page */
-[data-theme="light"] .card,
-[data-theme="light"] .skill-box { box-shadow: 0 1px 3px rgba(15,36,68,0.06); }
+[data-theme="light"] .card { box-shadow: 0 1px 3px rgba(15,36,68,0.06); }
 [data-theme="light"] .card:hover { box-shadow: 0 12px 32px rgba(15,36,68,0.1); }
 
 /* ============================================================
@@ -267,10 +266,10 @@ body.scroll-mode .panel + .panel {
 }
 
 .section-title {
-  font-size: clamp(1.8rem,3.5vw,2.5rem);
+  font-size: clamp(1.5rem,2.6vw,2rem);
   font-weight: 700;
-  letter-spacing: -1px;
-  margin-bottom: 0.6rem;
+  letter-spacing: -0.4px;
+  margin-bottom: 1.6rem;
 }
 
 .section-subtitle {
@@ -286,7 +285,7 @@ body.scroll-mode .panel + .panel {
 .hero-wrap {
   display: flex;
   align-items: center;
-  min-height: calc(100vh - 56px);
+  min-height: calc(82vh - 56px);
   position: relative;
   overflow: hidden;
 }
@@ -320,19 +319,20 @@ body.scroll-mode .panel + .panel {
 .hero-content { position: relative; z-index: 1; }
 
 .hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--accent);
-  letter-spacing: 2px;
-  margin-bottom: 1.2rem;
+  letter-spacing: 0;
+  margin-bottom: 0.9rem;
 }
 
 .hero-name {
-  font-size: clamp(2.8rem,6.5vw,5rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -2px;
-  margin-bottom: 1.2rem;
+  font-size: clamp(2.3rem,4.5vw,3.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 1.1rem;
 }
 
 .hero-name .grad {
@@ -343,9 +343,10 @@ body.scroll-mode .panel + .panel {
 }
 
 .hero-pitch {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
-  max-width: 520px;
+  max-width: 560px;
+  line-height: 1.7;
   margin-bottom: 2.2rem;
 }
 
@@ -394,7 +395,7 @@ body.scroll-mode .panel + .panel {
    ============================================================ */
 .about-layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 240px minmax(0, 620px);
   gap: 3.5rem;
   align-items: start;
 }
@@ -508,32 +509,29 @@ body.scroll-mode .panel + .panel {
 /* ============================================================
    SKILLS
    ============================================================ */
-.skill-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem; }
+.skill-grid { display:grid;grid-template-columns:1fr 1fr;gap:1.8rem 3rem;max-width:760px; }
 
 .skill-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.6rem;
-  transition: border-color var(--transition);
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  padding: 1rem 0 0;
 }
 
-.skill-box:hover { border-color:var(--border-hover); }
-.skill-box-title { font-family:var(--font-display);font-size:0.85rem;font-weight:600;color:var(--accent);letter-spacing:0;text-transform:none;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border); }
-.skill-list { display:flex;flex-wrap:wrap;gap:0.4rem; }
+.skill-box-title { font-family:var(--font-display);font-size:0.8rem;font-weight:600;color:var(--text-muted);letter-spacing:0.3px;text-transform:uppercase;margin-bottom:0.6rem;padding-bottom:0;border-bottom:none; }
+.skill-list { display:flex;flex-wrap:wrap;gap:0 0.4rem; }
 
 .skill-tag {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  padding: 0.35rem 0.7rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 0.15rem 0;
   color: var(--text-secondary);
-  transition: all var(--transition);
+  transition: color var(--transition);
 }
+.skill-tag:not(:last-child)::after { content: ','; color: var(--text-faint, var(--text-muted)); }
 
-.skill-tag:hover { border-color:var(--accent);color:var(--accent);background:var(--accent-dim); }
+.skill-tag:hover { color:var(--accent); }
 
 /* ============================================================
    TIMELINE
@@ -544,6 +542,7 @@ body.scroll-mode .panel + .panel {
 .tl-item:last-child { padding-bottom:0; }
 .tl-dot { position:absolute;left:-2.15rem;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-primary);box-shadow:0 0 0 2px var(--accent); }
 .tl-date { font-family:var(--font-display);font-size:0.85rem;color:var(--text-muted);letter-spacing:0;margin-bottom:0.35rem; }
+.tl-type { margin-left:0.6rem;padding:0.08rem 0.5rem;border:1px solid var(--border);border-radius:100px;font-size:0.72rem;color:var(--text-muted); }
 .tl-role { font-size:1.15rem;font-weight:600;margin-bottom:0.15rem; }
 .tl-company { color:var(--text-secondary);font-size:0.9rem;margin-bottom:0.6rem; }
 .tl-desc { color:var(--text-muted);font-size:0.95rem;line-height:1.65; }
@@ -718,11 +717,11 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <div class="card-links"><a href="#" class="card-link">Write-up</a></div>
     </div>
 
-    <div class="card" data-category="de">
-      <span class="card-badge badge-de">Data engineering</span>
-      <h3 class="card-title">Retail inventory data pipeline with Meijer</h3>
-      <p class="card-desc">MS capstone processing large-scale retail inventory data on MSU's HPCC. Built the ingest, clean, and transform pipeline and the summaries the business used to look at inventory. Proprietary data, so no public code.</p>
-      <div class="card-tech"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">HPC</span></div>
+    <div class="card" data-category="analyst">
+      <span class="card-badge badge-analyst">Analytics</span>
+      <h3 class="card-title">Stock optimization with Meijer</h3>
+      <p class="card-desc">MS capstone working on a retail stock optimization problem with Meijer, using large-scale inventory data on MSU's HPCC to recommend stock levels that reduce overstock and stockouts. Proprietary data, so no public code.</p>
+      <div class="card-tech"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Optimization</span><span class="chip">HPC</span></div>
       <div class="card-links"><a href="#" class="card-link">Write-up</a></div>
     </div>
 
@@ -803,73 +802,58 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
 <div class="panel" id="panel-experience">
   <h2 class="section-title">Experience</h2>
   <div class="timeline">
-    <!-- EDIT: fill the 20XX dates. Copy a block to add a role. -->
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">Sep 2026 to present</div>
-      <div class="tl-role">Professional Aide, Data Science</div>
+      <div class="tl-date">Sep 2026 to Present<span class="tl-type">Full-time</span></div>
+      <div class="tl-role">Data Scientist</div>
       <div class="tl-company">Department of Pharmacology and Toxicology, Michigan State University</div>
       <div class="tl-desc">Image analysis pipelines for toxicology research on immunofluorescence and H&amp;E tissue images, running on MSU's HPCC with Nextflow.</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">2024 to 2026</div>
-      <div class="tl-role">MS, Data Science</div>
-      <div class="tl-company">Michigan State University</div>
+      <div class="tl-date">Jan 2026 to May 2026<span class="tl-type">Capstone</span></div>
+      <div class="tl-role">Data Science Capstone, Stock Optimization</div>
+      <div class="tl-company">Meijer</div>
+      <div class="tl-desc">Retail stock optimization on large-scale inventory data, run on MSU's HPCC, to recommend stock levels that reduce overstock and stockouts.</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">20XX</div>
-      <div class="tl-role">Data science capstone, patient risk classification</div>
+      <div class="tl-date">Sep 2025 to Dec 2025<span class="tl-type">Capstone</span></div>
+      <div class="tl-role">Data Science Capstone, Patient Risk Classification</div>
       <div class="tl-company">Henry Ford Health</div>
       <div class="tl-desc">Classifier for high-risk patients on de-identified clinical data. Random Forest and XGBoost, evaluated on recall for the high-risk class.</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">20XX</div>
-      <div class="tl-role">Data engineering capstone, retail inventory pipeline</div>
-      <div class="tl-company">Meijer</div>
-      <div class="tl-desc">Ingest, clean, and transform pipeline for large-scale inventory data on MSU's HPCC.</div>
+      <div class="tl-date">May 2025 to May 2026<span class="tl-type">Part-time</span></div>
+      <div class="tl-role">Graduate Research and Technical Assistant</div>
+      <div class="tl-company">Michigan State University</div>
+      <div class="tl-desc">Research assistant in the College of Veterinary Medicine, building R pipelines to join and clean cattle health data across farms. Technical assistant with the Regional Economic Innovation program, leading undergraduate teams on community data projects: a Gemini API OCR pipeline for Luce County lease records, and a geospatial tool for Southwest Lansing.</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">20XX</div>
-      <div class="tl-role">Project lead, timber lease digitization</div>
-      <div class="tl-company">Luce County, MI, through MSU's REI program</div>
-      <div class="tl-desc">Led an undergraduate team building an OCR pipeline on the Gemini API to digitize scanned lease records.</div>
+      <div class="tl-date">Aug 2024 to May 2026</div>
+      <div class="tl-role">MS, Data Science</div>
+      <div class="tl-company">Michigan State University</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">20XX to 2026</div>
-      <div class="tl-role">Student Technical Assistant</div>
-      <div class="tl-company">Regional Economic Innovation program, Michigan State University</div>
-      <div class="tl-desc">Led undergraduate teams on applied data projects for Michigan communities, including a geospatial tool for Southwest Lansing.</div>
+      <div class="tl-date">May 2024 to Jul 2024<span class="tl-type">Full-time</span></div>
+      <div class="tl-role">Data Analyst (Data Engineering)</div>
+      <div class="tl-company">Innovaccer</div>
+      <div class="tl-desc">Data engineering in healthcare analytics: built and maintained ETL pipelines over clinical and operational data for reporting and downstream modeling.</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">20XX</div>
-      <div class="tl-role">Student Research Assistant</div>
-      <div class="tl-company">College of Veterinary Medicine, Michigan State University</div>
-      <div class="tl-desc">R pipelines joining and cleaning cattle health data from multiple farms into analysis-ready form.</div>
+      <div class="tl-date">Jun 2021 to May 2024<span class="tl-type">Full-time</span></div>
+      <div class="tl-role">Senior Data Associate</div>
+      <div class="tl-company">upGrad</div>
+      <div class="tl-desc">Senior analyst role: analytics and reporting on product and user data to inform business decisions.</div>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">20XX</div>
-      <div class="tl-role">Data Engineer</div>
-      <div class="tl-company">Healthcare analytics <!-- EDIT: company name --></div>
-      <div class="tl-desc">Built and maintained pipelines over clinical and operational data for reporting and downstream modeling.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">20XX</div>
-      <div class="tl-role">Senior Analyst</div>
-      <div class="tl-company">EdTech <!-- EDIT: company name --></div>
-      <div class="tl-desc">Analytics and reporting on product and user data for business decisions.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">20XX</div>
-      <div class="tl-role">B.E., Manufacturing Engineering, minor in Finance</div>
+      <div class="tl-date">Aug 2017 to May 2021</div>
+      <div class="tl-role">B.E., Manufacturing Engineering, Minor in Finance</div>
       <div class="tl-company">BITS Pilani</div>
     </div>
   </div>
