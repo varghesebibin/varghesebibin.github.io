@@ -80,7 +80,8 @@ body{font-family:var(--font-display);font-size:17px;background:var(--bg-primary)
 [data-theme="light"] .hamburger span{background:var(--text-primary);}
 /* Light mode: lift cards off the white page */
 [data-theme="light"] .card { box-shadow: 0 1px 3px rgba(15,36,68,0.06); }
-[data-theme="light"] .card:hover { box-shadow: 0 12px 32px rgba(15,36,68,0.1); }
+[data-theme="light"] .card:hover { box-shadow: 0 14px 36px rgba(15,36,68,0.12); }
+[data-theme="dark"] .card:hover { box-shadow: 0 16px 44px rgba(0,0,0,0.4); }
 
 /* ============================================================
    NAV
@@ -489,7 +490,7 @@ body.scroll-mode .panel + .panel {
 .card[data-category="deploy"]::before { background:var(--accent-3); }
 .card[data-category="de"]::before { background:var(--accent-4); }
 .card[data-category="analyst"]::before { background:var(--accent-5); }
-.card:hover { border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.3); }
+.card:hover { border-color:var(--border-hover);transform:translateY(-4px); }
 .card:hover::before { opacity:1; }
 
 .card-badge { font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0;text-transform:none;padding:0.25rem 0.65rem;border-radius:100px;display:inline-block;margin-bottom:0.9rem; }
@@ -503,6 +504,10 @@ body.scroll-mode .panel + .panel {
 .card-desc { color:var(--text-secondary);font-size:0.95rem;margin-bottom:1rem;line-height:1.65; }
 .card-tech { display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.2rem; }
 .chip { font-family:var(--font-mono);font-size:0.78rem;padding:0.2rem 0.5rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;color:var(--text-muted); }
+.card { position:relative; }
+.card.is-featured { border-color: rgba(30,78,140,0.35); }
+[data-theme="dark"] .card.is-featured { border-color: rgba(127,176,234,0.4); }
+.featured-pill { position:absolute; top:1.1rem; right:1.1rem; font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.3px; color:var(--accent); background:var(--accent-dim); border:1px solid var(--accent); padding:0.12rem 0.55rem; border-radius:100px; display:inline-flex; align-items:center; gap:0.3rem; }
 .card-links { display:flex;gap:1rem; }
 .card-link { font-family:var(--font-mono);font-size:0.9rem;color:var(--accent);text-decoration:none;transition:opacity .3s; }
 .card-link:hover { opacity:0.65; }
@@ -722,7 +727,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
   <h2 class="section-title">Projects</h2>
   <div class="cards">
     <!-- EDIT: one card per project. Copy a block to add one. -->
-    <div class="card" data-category="ml">
+    <div class="card" data-category="ml" data-featured data-rank="1">
       <span class="card-badge badge-ml">Machine learning</span>
       <h3 class="card-title">Melanoma detection from dermoscopic images</h3>
       <p class="card-desc">Fine-tuned MobileNetV2 to classify skin lesions as benign or malignant on 10,000 ISIC images, reaching about 90% validation accuracy. Includes a model card covering limitations and intended use.</p>
@@ -730,7 +735,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <div class="card-links"><a href="https://github.com/varghesebibin/melanoma-detector" class="card-link" target="_blank">Code</a><a href="https://melanoma-cancer-detector.streamlit.app" class="card-link" target="_blank">Live demo</a></div>
     </div>
 
-    <div class="card" data-category="ml">
+    <div class="card" data-category="ml" data-featured data-rank="2">
       <span class="card-badge badge-ml">Machine learning</span>
       <h3 class="card-title">Single-cell RNA-seq analysis of PBMC 3k</h3>
       <p class="card-desc">End-to-end Scanpy pipeline on the 10x Genomics PBMC 3k dataset: QC, normalization, 1,838 highly variable genes, PCA, UMAP, Leiden clustering, and marker-based annotation of six cell types. Interactive dashboard for exploring the results.</p>
@@ -754,7 +759,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <div class="card-links"><a href="#" class="card-link">Write-up</a></div>
     </div>
 
-    <div class="card" data-category="ml">
+    <div class="card" data-category="ml" data-featured data-rank="3">
       <span class="card-badge badge-ml">Machine learning</span>
       <h3 class="card-title">Bank marketing: predicting term deposit subscription</h3>
       <p class="card-desc">Binary classification on 45,000 records from a Portuguese bank's telemarketing campaigns, with an 88/12 class imbalance. A tuned Random Forest raised recall on subscribers from 6% (baseline) to 69% at 0.81 ROC-AUC.</p>
@@ -1090,6 +1095,27 @@ document.querySelectorAll('[data-start]').forEach(el => {
   const dur = parts.join(' ');
   el.textContent = el.textContent.trim() ? el.textContent.trim() + ' · ' + dur : dur;
 });
+
+// --- Featured projects: pin to front, add a tag. Edit: add data-featured (and data-rank) to a card to pin it. ---
+(function () {
+  const grid = document.querySelector('.cards');
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.card'));
+  const featured = cards.filter(c => c.hasAttribute('data-featured'));
+  featured
+    .sort((a, b) => (+a.dataset.rank || 99) - (+b.dataset.rank || 99))
+    .reverse()
+    .forEach(c => {
+      c.classList.add('is-featured');
+      if (!c.querySelector('.featured-pill')) {
+        const pill = document.createElement('span');
+        pill.className = 'featured-pill';
+        pill.textContent = '\u2605 Featured';
+        c.prepend(pill);
+      }
+      grid.prepend(c);
+    });
+})();
 </script>
 </body>
 </html>
