@@ -36,7 +36,7 @@
   --accent-5-dim: var(--accent-dim);
   --border: #26364f;
   --border-hover: #35496a;
-  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-display: Georgia, 'Times New Roman', Times, serif;
   --font-mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   --radius: 10px;
   --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -69,7 +69,7 @@
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--font-display);font-size:18px;background:var(--bg-primary);color:var(--text-primary);line-height:1.75;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
+body{font-family:var(--font-display);font-size:17px;background:var(--bg-primary);color:var(--text-primary);line-height:1.75;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
 ::selection{background:var(--accent);color:var(--bg-primary);}
 
 /* Light mode hero adjustments */
@@ -138,9 +138,10 @@ nav {
 }
 
 .nav-tab a {
+  font-family: var(--font-mono);
   text-decoration: none;
   color: var(--text-muted);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.5px;
   padding: 0 1rem;
@@ -319,20 +320,20 @@ body.scroll-mode .panel + .panel {
 .hero-content { position: relative; z-index: 1; }
 
 .hero-eyebrow {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
   font-weight: 500;
   color: var(--accent);
   letter-spacing: 0;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.7rem;
 }
 
 .hero-name {
-  font-size: clamp(2.3rem,4.5vw,3.4rem);
+  font-size: clamp(1.9rem,3vw,2.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  margin-bottom: 1.1rem;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  margin-bottom: 1rem;
 }
 
 .hero-name .grad {
@@ -491,7 +492,7 @@ body.scroll-mode .panel + .panel {
 .card:hover { border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.3); }
 .card:hover::before { opacity:1; }
 
-.card-badge { font-family:var(--font-display);font-size:0.75rem;letter-spacing:0;text-transform:none;padding:0.25rem 0.65rem;border-radius:100px;display:inline-block;margin-bottom:0.9rem; }
+.card-badge { font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0;text-transform:none;padding:0.25rem 0.65rem;border-radius:100px;display:inline-block;margin-bottom:0.9rem; }
 .badge-ml { background:var(--accent-dim);color:var(--accent); }
 .badge-genai { background:var(--accent-2-dim);color:var(--accent-2); }
 .badge-deploy { background:var(--accent-3-dim);color:var(--accent-3); }
@@ -501,9 +502,9 @@ body.scroll-mode .panel + .panel {
 .card-title { font-size:1.1rem;font-weight:600;margin-bottom:0.6rem;letter-spacing:-0.2px; }
 .card-desc { color:var(--text-secondary);font-size:0.95rem;margin-bottom:1rem;line-height:1.65; }
 .card-tech { display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.2rem; }
-.chip { font-family:var(--font-display);font-size:0.78rem;padding:0.2rem 0.5rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;color:var(--text-muted); }
+.chip { font-family:var(--font-mono);font-size:0.78rem;padding:0.2rem 0.5rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;color:var(--text-muted); }
 .card-links { display:flex;gap:1rem; }
-.card-link { font-family:var(--font-display);font-size:0.9rem;color:var(--accent);text-decoration:none;transition:opacity .3s; }
+.card-link { font-family:var(--font-mono);font-size:0.9rem;color:var(--accent);text-decoration:none;transition:opacity .3s; }
 .card-link:hover { opacity:0.65; }
 
 /* ============================================================
@@ -519,11 +520,11 @@ body.scroll-mode .panel + .panel {
   padding: 1rem 0 0;
 }
 
-.skill-box-title { font-family:var(--font-display);font-size:0.8rem;font-weight:600;color:var(--text-muted);letter-spacing:0.3px;text-transform:uppercase;margin-bottom:0.6rem;padding-bottom:0;border-bottom:none; }
+.skill-box-title { font-family:var(--font-mono);font-size:0.8rem;font-weight:600;color:var(--text-muted);letter-spacing:0.3px;text-transform:uppercase;margin-bottom:0.6rem;padding-bottom:0;border-bottom:none; }
 .skill-list { display:flex;flex-wrap:wrap;gap:0 0.4rem; }
 
 .skill-tag {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: 0.9rem;
   padding: 0.15rem 0;
   color: var(--text-secondary);
@@ -541,7 +542,7 @@ body.scroll-mode .panel + .panel {
 .tl-item { position:relative;padding:0 0 2.8rem 2rem; }
 .tl-item:last-child { padding-bottom:0; }
 .tl-dot { position:absolute;left:-2.15rem;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-primary);box-shadow:0 0 0 2px var(--accent); }
-.tl-date { font-family:var(--font-display);font-size:0.85rem;color:var(--text-muted);letter-spacing:0;margin-bottom:0.35rem; }
+.tl-date { font-family:var(--font-mono);font-size:0.85rem;color:var(--text-muted);letter-spacing:0;margin-bottom:0.35rem; }
 .tl-type { margin-left:0.6rem;padding:0.08rem 0.5rem;border:1px solid var(--border);border-radius:100px;font-size:0.72rem;color:var(--text-muted); }
 .tl-role { font-size:1.15rem;font-weight:600;margin-bottom:0.15rem; }
 .tl-company { color:var(--text-secondary);font-size:0.9rem;margin-bottom:0.6rem; }
@@ -627,6 +628,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <li class="nav-tab" data-panel="projects"><a>Projects</a></li>
       <li class="nav-tab" data-panel="skills"><a>Skills</a></li>
       <li class="nav-tab" data-panel="experience"><a>Experience</a></li>
+      <li class="nav-tab" data-panel="education"><a>Education</a></li>
       <li class="nav-tab" data-panel="contact"><a>Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -832,12 +834,6 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-date">Aug 2024 to May 2026</div>
-      <div class="tl-role">MS, Data Science</div>
-      <div class="tl-company">Michigan State University</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
       <div class="tl-date">May 2024 to Jul 2024<span class="tl-type">Full-time</span></div>
       <div class="tl-role">Data Analyst (Data Engineering)</div>
       <div class="tl-company">Innovaccer</div>
@@ -850,11 +846,26 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <div class="tl-company">upGrad</div>
       <div class="tl-desc">Senior analyst role: analytics and reporting on product and user data to inform business decisions.</div>
     </div>
+  </div>
+</div>
+
+<!-- EDUCATION PANEL -->
+<div class="panel" id="panel-education">
+  <h2 class="section-title">Education</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Aug 2024 to May 2026</div>
+      <div class="tl-role">MS, Data Science</div>
+      <div class="tl-company">Michigan State University</div>
+      <div class="tl-desc">College of Natural Science, CMSE and STT program. Coursework in machine learning, statistics, and data engineering, with industry capstones and graduate research roles alongside the degree.</div>
+    </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-date">Aug 2017 to May 2021</div>
       <div class="tl-role">B.E., Manufacturing Engineering, Minor in Finance</div>
       <div class="tl-company">BITS Pilani</div>
+      <div class="tl-desc">Engineering degree with a finance minor, the quantitative base I later built on in data.</div>
     </div>
   </div>
 </div>
