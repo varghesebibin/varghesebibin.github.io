@@ -553,15 +553,19 @@ body.scroll-mode .panel + .panel {
    EXPERIENCE, LinkedIn-style
    ============================================================ */
 .xp-list { display:flex; flex-direction:column; max-width:860px; }
-.xp { padding:1.5rem 0; border-bottom:1px solid var(--border); }
-.xp-body { flex:1; min-width:0; }
-.xp:first-child { padding-top:0.4rem; }
-.xp:last-child { border-bottom:none; }
+.xp { display:grid; grid-template-columns:64px 26px 1fr; column-gap:0.9rem; padding:0 0 2.4rem; }
+.xp:last-child { padding-bottom:0.5rem; }
+.xp-body { min-width:0; }
+.xp-year { font-family:var(--font-mono); font-size:0.9rem; font-weight:600; color:var(--text-muted); text-align:right; padding-top:0.25rem; }
+.xp-rail { position:relative; }
+.xp-rail::before { content:''; position:absolute; left:50%; top:0.6rem; bottom:-2.4rem; width:2px; background:var(--border); transform:translateX(-50%); }
+.xp:last-child .xp-rail::before { display:none; }
+.xp-rail::after { content:''; position:absolute; left:50%; top:0.55rem; width:10px; height:10px; border-radius:50%; background:var(--accent); border:2px solid var(--bg-primary); box-shadow:0 0 0 2px var(--accent); transform:translateX(-50%); }
 .xp-title { font-size:1.15rem; font-weight:700; color:var(--text-primary); margin-bottom:0.15rem; }
 .xp-org { font-family:var(--font-mono); font-size:0.92rem; color:var(--text-secondary); margin-bottom:0.1rem; }
 .xp-meta { font-family:var(--font-mono); font-size:0.86rem; color:var(--text-muted); line-height:1.6; }
 .xp-desc { color:var(--text-secondary); font-size:0.98rem; line-height:1.65; margin-top:0.6rem; }
-.xp-roles { margin-top:1rem; padding-left:1.25rem; border-left:2px solid var(--border); display:flex; flex-direction:column; gap:1.1rem; }
+.xp-roles { margin-top:1rem; padding-left:1.1rem; border-left:1px dashed var(--border-hover); display:flex; flex-direction:column; gap:1.1rem; }
 .xp-role { position:relative; }
 .xp-role::before { content:''; position:absolute; left:calc(-1.25rem - 5px); top:0.5rem; width:8px; height:8px; border-radius:50%; background:var(--text-muted); }
 .xp-role .xp-title { font-size:1.03rem; }
@@ -630,6 +634,8 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
   .hero-metrics { flex-wrap: wrap; gap: 1.5rem; }
   .cards { grid-template-columns: 1fr; }
   .panel { padding: 4rem 1.5rem 3rem; }
+  .xp { grid-template-columns:22px 1fr; column-gap:0.7rem; }
+  .xp-year { display:none; }
 }
 </style>
 </head>
@@ -825,6 +831,8 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     <!-- EDIT: one block per employer. Durations compute from data-start / data-end (YYYY-MM). -->
 
     <div class="xp">
+      <div class="xp-year"></div>
+      <div class="xp-rail"></div>
       <div class="xp-body">
         <div class="xp-title">Data Scientist</div>
         <div class="xp-org">Michigan State University, Department of Pharmacology and Toxicology · Full-time</div>
@@ -835,6 +843,8 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     </div>
 
     <div class="xp">
+      <div class="xp-year"></div>
+      <div class="xp-rail"></div>
       <div class="xp-body">
         <div class="xp-title">Data Science Consultant (Graduate Capstone)</div>
         <div class="xp-org">Meijer · Part-time</div>
@@ -845,6 +855,8 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     </div>
 
     <div class="xp">
+      <div class="xp-year"></div>
+      <div class="xp-rail"></div>
       <div class="xp-body">
         <div class="xp-title">Michigan State University</div>
         <div class="xp-org">Part-time · <span data-start="2025-05" data-end="2026-05"></span></div>
@@ -865,6 +877,8 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     </div>
 
     <div class="xp">
+      <div class="xp-year"></div>
+      <div class="xp-rail"></div>
       <div class="xp-body">
         <div class="xp-title">Data Science Consultant (Graduate Capstone)</div>
         <div class="xp-org">Henry Ford Health · Part-time</div>
@@ -875,6 +889,8 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     </div>
 
     <div class="xp">
+      <div class="xp-year"></div>
+      <div class="xp-rail"></div>
       <div class="xp-body">
         <div class="xp-title">Data Analyst</div>
         <div class="xp-org">Innovaccer · Full-time</div>
@@ -885,6 +901,8 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     </div>
 
     <div class="xp">
+      <div class="xp-year"></div>
+      <div class="xp-rail"></div>
       <div class="xp-body">
         <div class="xp-title">Senior Data Associate</div>
         <div class="xp-org">upGrad · Full-time</div>
@@ -903,20 +921,24 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
   <div class="xp-list">
 
     <div class="xp">
+      <div class="xp-year"></div>
+      <div class="xp-rail"></div>
       <div class="xp-body">
         <div class="xp-title">Michigan State University</div>
         <div class="xp-org">MS, Data Science</div>
-        <div class="xp-meta">Aug 2024 to May 2026</div>
+        <div class="xp-meta"><span data-start="2024-08" data-end="2026-05" data-nodur>Aug 2024 to May 2026</span></div>
         <div class="xp-meta">East Lansing, Michigan, United States</div>
         <div class="xp-desc">College of Natural Science, CMSE and STT program. Coursework in machine learning, statistics, and data engineering, with industry capstones and graduate research roles alongside the degree.</div>
       </div>
     </div>
 
     <div class="xp">
+      <div class="xp-year"></div>
+      <div class="xp-rail"></div>
       <div class="xp-body">
         <div class="xp-title">BITS Pilani</div>
         <div class="xp-org">B.E., Manufacturing Engineering, Minor in Finance</div>
-        <div class="xp-meta">Aug 2017 to May 2021</div>
+        <div class="xp-meta"><span data-start="2017-08" data-end="2021-05" data-nodur>Aug 2017 to May 2021</span></div>
         <div class="xp-meta">Pilani, Rajasthan, India</div>
         <div class="xp-desc">Engineering degree with a finance minor, the quantitative base I later built on in data.</div>
       </div>
@@ -1037,8 +1059,21 @@ themeToggle.addEventListener('click', () => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// --- Year gutter: print the start year, only when it changes ---
+document.querySelectorAll('.xp-list').forEach(list => {
+  let prev = null;
+  list.querySelectorAll(':scope > .xp').forEach(xp => {
+    const span = xp.querySelector('[data-start]');
+    const yr = span ? span.dataset.start.slice(0, 4) : '';
+    const cell = xp.querySelector('.xp-year');
+    if (cell) cell.textContent = (yr && yr !== prev) ? yr : '';
+    if (yr) prev = yr;
+  });
+});
+
 // --- Durations, LinkedIn-style (inclusive months) ---
 document.querySelectorAll('[data-start]').forEach(el => {
+  if (el.hasAttribute('data-nodur')) return;
   const [sy, sm] = el.dataset.start.split('-').map(Number);
   let ey, em;
   if (el.dataset.end) { [ey, em] = el.dataset.end.split('-').map(Number); }
