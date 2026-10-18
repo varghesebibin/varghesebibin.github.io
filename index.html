@@ -693,9 +693,12 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
   <div class="about-layout">
     <div class="about-photo-wrap">
       <div class="about-photo">
-        <!-- EDIT: put photo.jpg in the repo and replace the span with:
-             <img src="photo.jpg" alt="Bibin Varghese" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"> -->
-        <span>[ Your Photo ]</span>
+        <!-- Upload a file named photo.jpg to the repo and it appears here automatically.
+             No code change needed. For a different name, change src below. -->
+        <img src="photo.jpg" alt="Bibin Varghese"
+             style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+        <span style="display:none;">[ Your Photo ]</span>
       </div>
       <div class="about-accent-border"></div>
     </div>
