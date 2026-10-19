@@ -567,13 +567,29 @@ body.scroll-mode .panel + .panel {
 .xp:last-child .xp-rail::before { display:none; }
 .xp-rail::after { content:''; position:absolute; left:50%; top:0.55rem; width:10px; height:10px; border-radius:50%; background:var(--accent); border:2px solid var(--bg-primary); box-shadow:0 0 0 2px var(--accent); transform:translateX(-50%); }
 .xp-title { font-size:1.15rem; font-weight:700; color:var(--text-primary); margin-bottom:0.15rem; }
-.xp-org { font-family:var(--font-mono); font-size:0.92rem; color:var(--text-secondary); margin-bottom:0.1rem; }
-.xp-meta { font-family:var(--font-mono); font-size:0.86rem; color:var(--text-muted); line-height:1.6; }
+.xp-org { font-family:var(--font-display); font-size:1rem; color:var(--text-secondary); margin-bottom:0.15rem; }
+.xp-meta { font-family:var(--font-mono); font-size:0.85rem; color:var(--text-muted); line-height:1.6; }
 .xp-desc { color:var(--text-secondary); font-size:0.98rem; line-height:1.65; margin-top:0.6rem; }
 .xp-roles { margin-top:1rem; padding-left:1.5rem; border-left:2px solid var(--border); display:flex; flex-direction:column; gap:1.4rem; }
 .xp-role { position:relative; }
 .xp-role::before { content:''; position:absolute; left:calc(-1.5rem - 5px); top:0.4rem; width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--bg-primary); }
 .xp-role .xp-title { font-size:1.03rem; }
+
+
+/* ============================================================
+   WRITING
+   ============================================================ */
+.post-list { display:flex; flex-direction:column; max-width:720px; }
+.post { padding:1.4rem 0; border-bottom:1px solid var(--border); }
+.post:first-child { padding-top:0.2rem; }
+.post:last-child { border-bottom:none; }
+.post-title { font-size:1.15rem; font-weight:600; margin-bottom:0.3rem; letter-spacing:-0.2px; }
+.post-title a { color:var(--text-primary); text-decoration:none; }
+.post-title a:hover { color:var(--accent); }
+.post-meta { font-family:var(--font-mono); font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem; }
+.post-sum { color:var(--text-secondary); font-size:0.98rem; line-height:1.6; margin-bottom:0.6rem; }
+.post-link { font-family:var(--font-mono); font-size:0.9rem; color:var(--accent); text-decoration:none; }
+.post-link:hover { opacity:0.7; }
 
 /* ============================================================
    CONTACT
@@ -655,6 +671,7 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <li class="nav-tab active" data-panel="home"><a>Home</a></li>
       <li class="nav-tab" data-panel="about"><a>About</a></li>
       <li class="nav-tab" data-panel="projects"><a>Projects</a></li>
+      <li class="nav-tab" data-panel="writing"><a>Writing</a></li>
       <li class="nav-tab" data-panel="skills"><a>Skills</a></li>
       <li class="nav-tab" data-panel="experience"><a>Experience</a></li>
       <li class="nav-tab" data-panel="education"><a>Education</a></li>
@@ -797,6 +814,20 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <p class="card-desc">Working through the Olist Brazilian e-commerce dataset: orders, sellers, customers, and reviews across linked tables. Looking at order flow, delivery performance, and what drives review scores.</p>
       <div class="card-tech"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">pandas</span></div>
       <div class="card-links"><a href="#" class="card-link">Code</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- WRITING PANEL -->
+<div class="panel" id="panel-writing">
+  <h2 class="section-title">Writing</h2>
+  <div class="post-list">
+    <!-- EDIT: one <div class="post"> per article. Copy a block to add one. -->
+    <div class="post">
+      <div class="post-title"><a href="https://bibinvarghese527.medium.com/the-day-i-realised-random-doesnt-actually-mean-random-27a4060706ad" target="_blank">The day I realised "random" doesn't actually mean random</a></div>
+      <div class="post-meta">Medium · Feb 2026 · 3 min read</div>
+      <div class="post-sum">Using Bertrand's paradox to show how a probability question can have several valid answers when the sampling method is left undefined, and why vague definitions, like what counts as an "active" customer, quietly pull training data away from production data and degrade a model.</div>
+      <a class="post-link" href="https://bibinvarghese527.medium.com/the-day-i-realised-random-doesnt-actually-mean-random-27a4060706ad" target="_blank">Read on Medium</a>
     </div>
   </div>
 </div>
