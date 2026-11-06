@@ -633,6 +633,9 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* Mobile-only menu items (Resume, theme). Hidden on desktop where .nav-right shows them. */
+.nav-extra { display: none; }
+
 @media (max-width: 768px) {
   .nav-tabs, .nav-right { display: none; }
   .nav-tabs.open {
@@ -642,19 +645,39 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
     top: 56px;
     left: 0;
     right: 0;
-    background: var(--nav-bg);
-    backdrop-filter: blur(24px);
-    padding: 1rem 0;
+    height: auto;          /* fix: desktop strip sets height:100%, which clipped the menu to 56px */
+    overflow: visible;     /* fix: desktop strip sets overflow-x:auto, which hid every tab after Home */
+    background: var(--bg-primary);   /* solid, so page content does not show through the menu */
+    padding: 0.6rem 0 0.8rem;
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
   }
   .nav-tab { height: auto; }
-  .nav-tab a { padding: 0.7rem 2rem; }
+  .nav-tab a { padding: 0.85rem 1.5rem; font-size: 1rem; }
   .nav-tab::after { display: none; }
+  .nav-tabs.open .nav-extra { display: flex; }
+  .nav-extra { border-top: 1px solid var(--border); margin-top: 0.4rem; padding-top: 0.4rem; }
+  .nav-extra + .nav-extra { border-top: none; margin-top: 0; padding-top: 0; }
+  .nav-extra a, .nav-extra button {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+  }
   .hamburger { display: block; }
   .about-layout { grid-template-columns: 1fr; }
+  .hero-wrap { min-height: auto; align-items: flex-start; padding: 1.5rem 0 2.5rem; }
+  .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .hero-actions .btn { text-align: center; }
   .hero-metrics { flex-wrap: wrap; gap: 1.5rem; }
   .cards { grid-template-columns: 1fr; }
-  .panel { padding: 4rem 1.5rem 3rem; }
+  .panel { padding: 2.25rem 1.25rem 3rem; }
   .xp { grid-template-columns:22px 1fr; column-gap:0.7rem; }
   .xp-year { display:none; }
 }
@@ -676,6 +699,9 @@ footer { text-align:center;padding:1.8rem;border-top:1px solid var(--border);col
       <li class="nav-tab" data-panel="experience"><a>Experience</a></li>
       <li class="nav-tab" data-panel="education"><a>Education</a></li>
       <li class="nav-tab" data-panel="contact"><a>Contact</a></li>
+      <!-- Mobile-only: these only show inside the phone menu. Desktop uses .nav-right. -->
+      <li class="nav-extra"><a href="resume.pdf" target="_blank">Resume</a></li>
+      <li class="nav-extra"><button type="button" id="themeToggleMobile">Dark mode</button></li>
     </ul>
     <div class="nav-right">
       <button class="view-toggle" id="themeToggle" title="Toggle light/dark mode">Dark</button>
@@ -1076,24 +1102,36 @@ hamburger.addEventListener('click', () => navTabs.classList.toggle('open'));
 navTabs.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => navTabs.classList.remove('open'))
 );
-
-// --- Theme toggle ---
-const themeToggle = document.getElementById('themeToggle');
-const htmlEl = document.documentElement;
-// Default is light. Apply saved preference if there is one.
-if (localStorage.getItem('theme') === 'dark') {
-  htmlEl.setAttribute('data-theme', 'dark');
-  themeToggle.textContent = 'Light';
-} else {
-  htmlEl.setAttribute('data-theme', 'light');
-  themeToggle.textContent = 'Dark';
-}
-themeToggle.addEventListener('click', () => {
-  const isDark = htmlEl.getAttribute('data-theme') === 'dark';
-  htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  themeToggle.textContent = isDark ? 'Dark' : 'Light';
-  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+// Close the phone menu when tapping outside it
+document.addEventListener('click', (e) => {
+  if (!navTabs.classList.contains('open')) return;
+  if (navTabs.contains(e.target) || hamburger.contains(e.target)) return;
+  navTabs.classList.remove('open');
 });
+
+// --- Theme toggle (desktop button + mobile menu button share one state) ---
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleMobile = document.getElementById('themeToggleMobile');
+const htmlEl = document.documentElement;
+
+function applyTheme(theme) {
+  htmlEl.setAttribute('data-theme', theme);
+  const isDark = theme === 'dark';
+  themeToggle.textContent = isDark ? 'Light' : 'Dark';
+  if (themeToggleMobile) themeToggleMobile.textContent = isDark ? 'Light mode' : 'Dark mode';
+}
+// Default is light. Apply saved preference if there is one.
+let savedTheme = 'light';
+try { if (localStorage.getItem('theme') === 'dark') savedTheme = 'dark'; } catch (e) {}
+applyTheme(savedTheme);
+
+function flipTheme() {
+  const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem('theme', next); } catch (e) {}
+}
+themeToggle.addEventListener('click', flipTheme);
+if (themeToggleMobile) themeToggleMobile.addEventListener('click', flipTheme);
 
 
 document.getElementById('year').textContent = new Date().getFullYear();
